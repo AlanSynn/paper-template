@@ -1,0 +1,254 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SPACE SAVERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[small,compact]{titlesec}
+%%% left, before, after
+%\titlespacing*{\section}{0pt}{3pt}{0pt}
+%\titlespacing*{\subsection}{0pt}{2pt}{0pt}
+%\textfloatsep 0.08in
+%\floatsep 0.06in
+
+%%% PATCH TO FIX NUMBERING (titlesec bug removes numbering)
+% https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
+%\usepackage{etoolbox}
+%\makeatletter
+%\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+%\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+%\makeatother
+
+%%% AMSMATH (align*) SPACING
+%\expandafter\def\expandafter\normalsize\expandafter{%
+%  \normalsize
+%  \setlength\abovedisplayskip{1pt}
+%  \setlength\belowdisplayskip{1pt}
+%  \setlength\abovedisplayshortskip{1pt}
+%  \setlength\belowdisplayshortskip{1pt}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{boxedminipage}
+\usepackage{calrsfs}
+\usepackage{caption}
+\usepackage[capitalize]{cleveref}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+    %pdftitle={Blocking-Resistant Network Services using \systemname},
+    %pdfsubject={Network security and privacy; Peer-to-peer, overlay, and content distribution networks},
+}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage{multirow}
+\usepackage{nicefrac}
+\usepackage{pifont}
+\usepackage[section]{placeins}
+\usepackage{sidecap}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{xspace}
+\usepackage[ff,sets,adversary,keys,primitives,operators,lambda,logic,notions]{style/cryptocode}
+\usepackage[autolanguage]{numprint}
+\usepackage{fp}
+\setlength {\marginparwidth }{2cm}
+\usepackage[colorinlistoftodos, textsize=tiny]{todonotes}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{
+  %language=HTML,
+  %basicstyle=\scriptsize\ttfamily,       % the size of the fonts that are used for the code
+  basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+  %numbers=left,                   % where to put the line-numbers
+  numbers=none,                   % where to put the line-numbers
+  numberstyle=\scriptsize,        % the size of the fonts that are used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=none,                     % adds a frame around the code
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  commentstyle=\color{green},
+  keywordstyle=\color{blue}\bfseries,
+  stringstyle=\color{red}
+}
+\lstdefinelanguage{javascript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{black}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CUSTOM COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\squishlist}{\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt,leftmargin=1em,labelwidth=1em,labelsep=0.5em]}
+\newcommand{\squishlistend}{\end{itemize}}
+\newcommand{\squishend}{\end{itemize}}
+\newcommand{\squishenum}{\begin{enumerate}[itemsep=0.5pt,parsep=0pt,topsep=0pt,partopsep=0pt,leftmargin=1.5em,labelwidth=1em,labelsep=0.5em]{}}
+\newcommand{\squishenumend}{\end{enumerate}}
+
+%\newcommand{\todo}[1]{\textsf{\color{red}{[{TODO: #1}]}}}
+%\newcommand{\todo}[1]{[[[{\bf{TODO: #1}}]]]}
+\newcommand\myurl[2]{\url{#1}}
+
+\renewcommand{\floatpagefraction}{0.95}
+
+\newcommand{\captionfonts}{\small}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip 0.1in
+  \sbox\@tempboxa{{\captionfonts #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\captionfonts #1: #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip 0in}
+\makeatother   % Cancel the effect of \makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIX thebibliography error caused by IEEE
+\makeatletter
+\def\endthebibliography{%
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create custom user defined commands
+\newcommand{\ie}{i.e.\@\xspace}
+\newcommand{\aka}{a.k.a.\@\xspace}
+\newcommand{\eg}{e.g.\@\xspace}
+\newcommand{\etal}{et al.\@\xspace}
+\newcommand{\wrt}{w.r.t.\@\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Highlight text that has been added
+\newcommand{\addtxt}[1]{{\color{blue} \textbf{#1}}}
+% insert a date for when a project was planned to be completed and when a project is likely to be completed
+\newcommand{\projReportA}[2]{The project was planned to finish on \textbf{#1}after reviewing current progress we have determined that it will likely finish on \textbf{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Calculate Percentage
+\newcommand{\ShowPercentage}[2]{
+  \FPeval\percentage{round(#1/#2*100,0)}
+  \FPeval\percentageOneDecimal{round(#1/#2*100,2)}
+  \ifnum \percentage=0
+    {\np[\%]{0}}
+  \else
+    \ifnum \percentage<1
+      {$<$\np[\%]{0.1}}
+    \else
+      {\np[\%]{\FPprint{percentageOneDecimal}}}
+    \fi
+  \fi
+  \xspace
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Calculate Ratio
+\newcommand{\Ratio}[2]{
+  \FPeval\percentage{round(#2/#1,1)}
+  \FPeval\percentageOneDecimal{round(#2/#1,1)}
+  \np[\times]{\FPprint{percentageOneDecimal}}
+  \xspace
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plot bar chart
+\newlength\BARSIZE \setlength\BARSIZE{0.5cm}
+\newcommand{\inlinechart}[2]{
+  \FPeval{\BLACKBARSIZE}{#1/#2}\textcolor{black!80}{\rule{\BLACKBARSIZE\BARSIZE}{1.6ex}}
+  \FPeval{\BLACKBARSIZE}{1 - (#1/#2)}\textcolor{black!10}{\rule{\BLACKBARSIZE\BARSIZE}{1.6ex}}
+}
+\newcommand*\ChartSmall[3][v]{
+  \ifx q#1
+    \np{#2}/\np{#3}(\ShowPercentage{#2}{#3})
+  \else
+    \ifx p#1
+      \np{#2}(\ShowPercentage{#2}{#3})\else
+    \ifx c#1
+      \inlinechart{#2}{#3}
+    \else
+      \np{#2}
+    \ifx r#1
+      /\np{#3}
+  \fi
+  \hspace*{0.5ex}(\ShowPercentage{#2}{#3})
+  \inlinechart{#2}{#3}
+  \xspace
+\fi\fi\fi
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO notes
+\newcommand{\iTODO}[1]{\todo[color=yellow!10, linecolor=black!50!yellow, inline]{\textbf{TODO:} #1}}
+\newcommand{\alan}[1]{\todo[color=green!10, linecolor=black!50!green]{\textbf{SR1:} #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHANGE Tags
+\newcommand{\change}[2]{\sout{\textcolor{red}{#1}}\textcolor{blue}{#2}}
+%
+% UNCOMMENT if change completes
+% \renewcommand{\change}[2]{\textcolor{black}{#2}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wrapping in a colored fonts
+\specialcomment{wrap}{
+  \begingroup
+  	\small\color{blue}}{
+  	\hfill \break
+  \endgroup}
+% Show or Not
+\ifshow
+  \includecomment{wrap}
+\else
+  \excludecomment{wrap}
+  % anything wrapped in a {wrap} environment will be excluded
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For feedback
+\specialcomment{alexey}{
+  \begingroup
+  	\color{orange}}{
+  \endgroup}
+% Commenter
+\newcommand{\at}[1]{\textcolor{orange}{[Alexey] #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Theorems
+\newtheorem{mydefinition}{Definition}
+\newtheorem{mytheorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}

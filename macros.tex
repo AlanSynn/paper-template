@@ -1,3 +1,9 @@
+%%% Wrapping in a colored fonts
+\specialcomment{wrap}{
+  \begingroup
+  	\small\color{blue}}{
+  	\hfill \break
+  \endgroup}
 
 %%% Comments
 \newif\ifshowcomment
@@ -5,11 +11,12 @@
 %\showcommentfalse
 
 \ifshowcomment
-\newcommand{\todo}[1]{\textsf{\color{red}{[{TODO: #1}]}}}
-\newcommand{\ray}[1]{\textsf{\color{orange}{[Ray: {#1}]}}}
+  \includecomment{wrap}
+  % \newcommand{\todo}[1]{\textsf{\color{red}{[{TODO: #1}]}}}
+  % \newcommand{\alan}[1]{\textsf{\color{orange}{[Alan: {#1}]}}}
 \else
-\newcommand{\todo}[1]{}
-\newcommand{\ray}[1]{}
+  \excludecomment{wrap}
+  % anything wrapped in a {wrap} environment will be excluded
+  % \newcommand{\todo}[1]{}
+  % \newcommand{\alan}[1]{}
 \fi
-
-

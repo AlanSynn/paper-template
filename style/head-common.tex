@@ -40,13 +40,13 @@
 \usepackage{boxedminipage}
 \usepackage{calrsfs}
 \usepackage{caption}
+\usepackage{hyperref}
 \usepackage[capitalize]{cleveref}
 \usepackage{color}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{graphicx}
-\usepackage{hyperref}
 \hypersetup{
     colorlinks=false,
     pdfborder={0 0 0},
@@ -222,20 +222,6 @@
 % UNCOMMENT if change completes
 % \renewcommand{\change}[2]{\textcolor{black}{#2}}
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Wrapping in a colored fonts
-\specialcomment{wrap}{
-  \begingroup
-  	\small\color{blue}}{
-  	\hfill \break
-  \endgroup}
-% Show or Not
-\ifshow
-  \includecomment{wrap}
-\else
-  \excludecomment{wrap}
-  % anything wrapped in a {wrap} environment will be excluded
-\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % For feedback
 \specialcomment{alexey}{

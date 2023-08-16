@@ -5,18 +5,31 @@
   	\hfill \break
   \endgroup}
 
+% For feedback
+\specialcomment{alexey}{
+  \begingroup
+  	\color{orange}}{
+  \endgroup}
+% Commenter
+
 %%% Comments
 \newif\ifshowcomment
-\showcommenttrue
-%\showcommentfalse
+% \showcommenttrue
+\showcommentfalse
 
 \ifshowcomment
   \includecomment{wrap}
+  \newcommand{\at}[1]{\textcolor{orange}{[Alexey] #1}}
+  \newcommand{\change}[2]{\sout{\textcolor{red}{#1}}\textcolor{blue}{#2}}
+  \newcommand{\iTODO}[1]{\todo[color=yellow!10, linecolor=black!50!yellow, inline]{\textbf{TODO:} #1}}
+  \newcommand{\alan}[1]{\todo[color=green!10, linecolor=black!50!green]{\textbf{SR1:} #1}}
   % \newcommand{\todo}[1]{\textsf{\color{red}{[{TODO: #1}]}}}
   % \newcommand{\alan}[1]{\textsf{\color{orange}{[Alan: {#1}]}}}
 \else
   \excludecomment{wrap}
+  \newcommand{\change}[2]{\textcolor{black}{#2}}
   % anything wrapped in a {wrap} environment will be excluded
-  % \newcommand{\todo}[1]{}
-  % \newcommand{\alan}[1]{}
+  \newcommand{\at}[1]{}
+  \newcommand{\iTODO}[1]{}
+  \newcommand{\alan}[1]{}
 \fi

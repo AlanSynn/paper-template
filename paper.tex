@@ -2,7 +2,7 @@
 % LaTex Template for Paper Publications
 % AUTHOR : Alan Synn (alansynn@gatech.edu)
 % DATE : Aug 15, 2023
-% SUPPORTED FORMAT : IEEE, ACM, USENIX
+% SUPPORTED FORMAT : IEEE, ACM, USENIX, MLSys
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PROJECT / SYSTEM NAME DEFINITION
 \def\systemnameRaw{SYSTEMNAME}
@@ -10,9 +10,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % STYLE DEFINITION
 % \input{style/head-acm}
-\input{style/head-ieee}
+% \input{style/head-ieee}
 % \input{style/head-usenix}
 % \input{style/head-plain}
+\input{style/head-mlsys}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MACRO DEFINITION
 \input{style/head-common}
@@ -23,16 +24,22 @@
 % DATE DEFINITION
 %\date{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TITLE DEFINITION
-%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\Large \bf \systemname{}: Awesome Jawesome System}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE and AUTHOR DEFINITION
+
+% MLSys, includes AUTHORSHIP
+\input{author/title-author-mlsys.tex}
+
+% ACM / IEEE / USENIX
+% make title bold and 14 pt font (Latex default is non-bold, 16 pt)
+% \title{\Large \bf \systemname{}: Awesome Jawesome System}
+
 % AUTHOR DEFINITION
-% \input{miscellaneous/author-acm}
-\input{miscellaneous/author-ieee}
-% \input{miscellaneous/author-usenix}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\maketitle
+% \input{author/author-acm}
+% \input{author/author-ieee}
+% \input{author/author-usenix}
+
+% Uncomment below for ACM / IEEE / USENIX
+% \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAMERA READY PAGE NUMBER
 % Use the following at camera-ready time to suppress page numbers.
@@ -63,12 +70,16 @@
 %\bibliography{paper}
 
 %%% IEEE Bibliography Style
-\bibliographystyle{IEEEtran}
-\bibliography{paper}
+% \bibliographystyle{IEEEtran}
+% \bibliography{paper}
 
 %%% USENIX Bibliography Style
 % {\footnotesize \bibliographystyle{acm}
 % \bibliography{paper}}
+
+%%% MLSys Bibliography Style
+\bibliographystyle{style/mlsys2023}
+\bibliography{paper}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % APPENDIX
 %\theendnotes

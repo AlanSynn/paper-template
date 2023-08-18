@@ -1,10 +1,13 @@
 # A Repository for Academic Publication Templates in LaTeX
 
 Welcome to a repository that harbors a selection of LaTeX templates tailored specifically for academic conferences. Among the supported formats are esteemed names such as ACM, IEEE, and USENIX. We have diligently tested these templates across a spectrum of conferences:
-- ACM: CCS, SOCC, SOSP
+- ACM: ICLR, ICML, CCS, SOCC, SOSP
+- IEEE CVPR
+- NeurIPS
 - Eurosys
 - IEEE's S&P
 - USENIX: ATC, NSDI, OSDI, Security
+- MLSys
 
 ## Necessary Tools
 
